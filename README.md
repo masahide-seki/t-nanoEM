@@ -1,2 +1,2 @@
 # t-nanoEM
-Scripts for t-nanoEM ananlysis
+Scripts for t-nanoEM analysis
