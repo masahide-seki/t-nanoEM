@@ -22,7 +22,7 @@ picard
 perl vcf_hetero_bed.pl variant.vcf heteroSNP.bed
 ```
 
-### Optional: Duplication removal from bamfile of t-nanoEM (or nanoEM) generated from the nanoEM pipeline (https://github.com/yos-sk/nanoEM)
+### Optional: Duplication removal from bamfile of t-nanoEM (or nanoEM) processed from the nanoEM pipeline (https://github.com/yos-sk/nanoEM)
 
 ```bash
 picard MarkDuplicates -Xmx80g -INPUT tnanoEM.bam -OUTPUT tnanoEM.rmdup.bam -REMOVE_DUPLICATES true -M tnanoEM.rmdup.metrics.txt
