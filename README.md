@@ -37,7 +37,7 @@ perl rename_supplementary.pl  tnanoEM.rmdup.bam (or tnanoEM.bam) | samtools view
 
 samtools index tnanoEM_rn_sup.bam
 ```
-### Extraction of sequence of each read on positions with heteroSNP
+### Extraction of bases of each read on positions with heteroSNP
 
 ```bash
 samtools mpileup -q 0 -Q 0 -l heteroSNP.bed  -f reference_genome.fa --output-QNAME tnanoEM_rn_sup.bam > tnanoEM.mpu.txt
