@@ -97,7 +97,8 @@ samtools index pseudo_read.bam
 ```
 
 
-## Phasing nanoEM or t-nanoEM reads by SNVs
+
+## Phasing nanoEM or t-nanoEM reads by somatic SNVs
 
 ### Conversion of vcf file of somatic mutations to bed file of SNV
 
@@ -121,10 +122,20 @@ perl rename_supplementary.pl  tnanoEM.rmdup.bam (or tnanoEM.bam) | samtools view
 samtools index tnanoEM_rn_sup.bam
 ```
 
-### Extraction of bases of each read on positions with heteroSNP
+### Extraction of bases of each read on positions with SNVs
 
 ```bash
-samtools mpileup -q 0 -Q 0 -l SNV.bed  -f reference_genome.fa --output-QNAME tnanoEM_rn_sup.bam > tnanoEM.mpu.txt
+samtools mpileup -q 0 -Q 0 -l SNV.bed  -f reference_genome.fa --output-QNAME ../../tnanoEM_rn_sup.bam > tnanoEM.snv.mpu.txt
 
-perl read_names_per_heteroSNP.pl heteroSNP.bed tnanoEM.mpu.txt >  > read_names_per_heteroSNP.txt
+perl read_names_per_SNV.pl SNV.bed tnanoEM.snv.mpu.txt > tnanoEM.SNV_rn.txt
+```
+
+### Phasing t-nanoEM or nanoEM reads with somatic SNVs
+
+```bash
+perl tnanoEM.rmdup.bam (or tnanoEM.bam) tnanoEM.SNV_rn.txt tnanoEM.SNV.phased.bam
+
+samtools view -bS tnanoEM.SNV.phased.sam | samtools sort -o tnanoEM.SNV.phased.bam
+
+samtools index tnanoEM.SNV.phased.bam
 ```
