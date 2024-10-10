@@ -1,6 +1,7 @@
 # t-nanoEM
 Scripts for t-nanoEM analysis
 
+
 # Requirement
 
 Perl
@@ -13,6 +14,8 @@ Java
 
 picard
 
+
+
 # Usage
 
 ## Construction of phase using nanoEM or t-nanoEM reads
@@ -22,7 +25,7 @@ picard
 perl vcf_hetero_bed.pl variant.vcf heteroSNP.bed
 ```
 
-### Optional: Duplication removal from bamfile of t-nanoEM (or nanoEM) processed from the nanoEM pipeline (https://github.com/yos-sk/nanoEM)
+### Optional: Duplication removal from bamfile of t-nanoEM (or nanoEM) processed by the nanoEM pipeline (https://github.com/yos-sk/nanoEM)
 
 ```bash
 picard MarkDuplicates -Xmx80g -INPUT tnanoEM.bam -OUTPUT tnanoEM.rmdup.bam -REMOVE_DUPLICATES true -M tnanoEM.rmdup.metrics.txt
@@ -91,4 +94,37 @@ perl add_phase.pl tnanoEM_rn_sup.bam pseudo_read.tagged.bam tnanoEM.tagged.sam
 samtools view -bS tnanoEM.tagged.sam | samtools sort -o tnanoEM.tagged.bam
 
 samtools index pseudo_read.bam
+```
+
+
+## Phasing nanoEM or t-nanoEM reads by SNVs
+
+### Conversion of vcf file of somatic mutations to bed file of SNV
+
+```bash
+perl vcf_SNV_bed.pl mutation.vcf SNV.bed
+```
+
+### Optional: Duplication removal from bamfile of t-nanoEM (or nanoEM) processed by the nanoEM pipeline (https://github.com/yos-sk/nanoEM)
+
+```bash
+picard MarkDuplicates -Xmx80g -INPUT tnanoEM.bam -OUTPUT tnanoEM.rmdup.bam -REMOVE_DUPLICATES true -M tnanoEM.rmdup.metrics.txt
+
+samtools index tnanoEM.rmdup.bam
+```
+
+### Marking supplementary alignment reads in bamfile of t-nanoEM (or nanoEM)
+
+```bash
+perl rename_supplementary.pl  tnanoEM.rmdup.bam (or tnanoEM.bam) | samtools view -bS | samtools sort -o tnanoEM_rn_sup.bam
+
+samtools index tnanoEM_rn_sup.bam
+```
+
+### Extraction of bases of each read on positions with heteroSNP
+
+```bash
+samtools mpileup -q 0 -Q 0 -l SNV.bed  -f reference_genome.fa --output-QNAME tnanoEM_rn_sup.bam > tnanoEM.mpu.txt
+
+perl read_names_per_heteroSNP.pl heteroSNP.bed tnanoEM.mpu.txt >  > read_names_per_heteroSNP.txt
 ```
