@@ -136,8 +136,11 @@ samtools index pseudo_read.bam
 
 ## 2. Phasing of nanoEM or t-nanoEM reads with somatic SNVs
 This workflow for separation of nanoEM or t-nanoEM reads based on the presence or absence of somatic single-nucleotide variants (SNVs).
+
 A VCF file containing somatic SNVs, typically generated using short-read whole-genome sequencing (WGS).
+
 Reads containing SNVs are tagged with "MU:i:1", while those without SNVs were tagged with "MU:i:0".
+
 Grouping alignment results by the MU tag allows us to visualize reads with and without SNVs separately in IGV.
 
 
