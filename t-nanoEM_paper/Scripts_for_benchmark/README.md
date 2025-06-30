@@ -9,7 +9,7 @@
 
 ## Estimation of bait coverage and fold enrichment
 
-Interval list was created from target.bed using picard BedToIntervalList.
+Interval list needs to be created from target.bed using picard BedToIntervalList.
 
 ./Picard_CollectHsMetrics.sh input.bam target.interval_list reference_genome.fa output.txt
 
