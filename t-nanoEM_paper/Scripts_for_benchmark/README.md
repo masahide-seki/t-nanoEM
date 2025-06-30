@@ -1,6 +1,6 @@
 # Scripts for benchmarking of t-nanoEM
 
-# HOW TO USE
+# Usage
 
 ## Histogram of read length
 
