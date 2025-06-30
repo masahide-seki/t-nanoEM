@@ -1,5 +1,7 @@
 # Scripts for benchmarking of t-nanoEM
 
+#HOW TO USE
+
 ## Histogram of read length
 
 ./Nanoplot.sh FASTQ_file Output_name
