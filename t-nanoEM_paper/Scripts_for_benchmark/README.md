@@ -5,8 +5,9 @@
 ## Histogram of read length
 
 ```bash
-./Nanoplot.sh read.fq output
+./Nanoplot.sh read.fq.gz output
 ```
+
 
 ## Estimation of bait coverage and fold enrichment
 
@@ -16,9 +17,12 @@ Interval list needs to be created from target.bed using picard BedToIntervalList
 ```
 
 
+
 ## Estimation of number of reads overlapping with target regions
 
+```bash
 ./Estimate_overlapped_Reads_with_targets.sh input.bam Target.bed output.txt
+```
 
 
 
@@ -29,6 +33,7 @@ frequency_methylation.tsv is output of nanoEM pipeline (https://github.com/yos-s
 ```bash
 perl CpG_coverage.pl frequency_methylation.tsv output.tsv
 ```
+
 
 
 ## Create correlation plot of CpG methylation
