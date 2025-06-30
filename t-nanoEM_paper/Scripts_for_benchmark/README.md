@@ -6,13 +6,16 @@
 
 ./Nanoplot.sh FASTQ_file Output_name
 
+
 ## Estimation of bait coverage and fold enrichment
 
 ./Picard_CollectHsMetrics.sh Input.bam Target_interval_file Reference_FASTA_file Output.txt
 
+
 ## Estimation of number of reads overlapping with target regions
 
 ./Estimate_overlapped_Reads_with_targets.sh BAM_file Target_BED_file Output.txt
+
 
 ## Count of CpGs covered by reads at or above threshold
 
