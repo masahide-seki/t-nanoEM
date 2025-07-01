@@ -12,11 +12,7 @@ open(F2, "$file2");
 open(OUT, ">$out");
 open(LOG, ">$log");
 
-my $header = <F1>;
-$header = <F2>;
-
 my %hash;
-
 my $OL = 0;
 my $F1 = 0;
 my $F2 = 0;
@@ -24,7 +20,10 @@ my $F2 = 0;
 print OUT "chr\tposition\tfrequency_1\tfrequency_2\n";
 
 while(my $line = <F1>){
-    chomp $line;    
+    chomp $line;
+    if($line =~ /'track type'/){
+        next;
+    }
     my @line = split(/\t/,$line);
     $hash{$line[0]}{$line[2]} = $line[3];
 #    print "$line[0]\n";
@@ -33,6 +32,9 @@ while(my $line = <F1>){
 
 while(my $line = <F2>){
     chomp $line;
+    if($line =~ /'track type'/){
+        next;
+    }
     my @line = split(/\t/,$line);
     if(defined($hash{$line[0]}{$line[2]})){
         print OUT "$line[0]\t$line[2]\t$hash{$line[0]}{$line[2]}\t$line[3]\n";
