@@ -1,7 +1,20 @@
 # Script for calculation of methylate frequencies for separated reads
 
-# Usage
+# Requirement
 
+Perl
+
+Python
+
+nanoEM pipeline (https://github.com/yos-sk/nanoEM)
+
+Sambamba (https://lomereiter.github.io/sambamba/)
+
+Samtools (https://www.htslib.org/)
+
+
+
+# Usage
 
 
 ## Calculation of methylation frequency for each haplotype
