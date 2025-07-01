@@ -49,7 +49,7 @@ Methylation frequency files for allele with and without SNV are generated.
 
 
 
-##Conversion from methylation frequency file to bedgraph file
+## Conversion from methylation frequency file to bedgraph file
 
 ```bash
 perl nanoEM_tsv_To_bedgraph.pl input.tsv output.bedgraph coverage_threshold
@@ -57,7 +57,7 @@ perl nanoEM_tsv_To_bedgraph.pl input.tsv output.bedgraph coverage_threshold
 
 
 
-##DMR calling using metilene
+## DMR calling using metilene
 
 ```bash
 ./DMR_call.sh input1.sorted.bedgraph input2.sorted.bedgraph name_of_input1 name_of_input2
