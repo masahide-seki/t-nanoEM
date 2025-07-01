@@ -26,6 +26,8 @@ perl methyl_phase.pl phased_reads.bam prefix_of_sorted_CT_GA_bam
 
 ./methyl_phase.sh prefix_of_sorted_CT_GA_bam CpG_sites.bed reference_genome.fa
 ```
+Methylation frequency files for each haplotype are generated.
+
 
 ## Calculation of methylation frequency for allele with/without SNVs
 
@@ -37,3 +39,4 @@ perl methyl_snv.pl reads_info_SNV.bam prefix_of_sorted_CT_GA_bam
 ./methyl_phase.sh prefix_of_sorted_CT_GA_bam CpG_sites.bed reference_genome.fa
 ```
 
+Methylation frequency files for allele with and without SNV are generated.
