@@ -12,7 +12,7 @@ Sambamba (https://lomereiter.github.io/sambamba/)
 
 Samtools (https://www.htslib.org/)
 
-Bed file of position of CpG
+Bed file of positions of CpG
 
 
 # Usage
