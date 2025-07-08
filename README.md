@@ -101,6 +101,16 @@ bgzip force_phased.vcf
 tabix -c vcf force_phased.vcf.gz
 ```
 
+### Optional: Replace supplementary alignment flag with primary alignment flag to phase both primary and supplementary reads
+This option is useful when you want to phase SVs. Use pseudo_read_all_pri.bam as input for whatshap haplotag in the next step.
+```bash
+perl sup_to_pri.pl pseudo_read.bam pseudo_read_all_pri.sam
+
+samtools view -bS pseudo_read_all_pri.sam -o pseudo_read_all_pri.bam
+
+samtools index pseudo_read_all_pri.bam
+```
+
 ### Phasing of nanoEM or t-nanoEM reads with phased SNPs
 
 ```bash
