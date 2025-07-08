@@ -127,22 +127,6 @@ samtools view -bS tnanoEM.tagged.sam | samtools sort -o tnanoEM.tagged.bam
 samtools index tnanoEM.tagged.bam
 ```
 
-### Phasing of nanoEM or t-nanoEM reads with phased SNPs
-
-```bash
-whatshap haplotag -o pseudo_read.tagged.bam --reference reference_genome.fa --ignore-read-groups force_phased.vcf.gz (or phased.vcf.gz) pseudo_read.bam
-
-samtools sort pseudo_read.tagged.bam -o pseudo_read.tagged.bam
-
-samtools index pseudo_read.tagged.bam
-
-perl add_phase.pl tnanoEM_rn_sup.bam pseudo_read.tagged.bam tnanoEM.tagged.sam
-
-samtools view -bS tnanoEM.tagged.sam | samtools sort -o tnanoEM.tagged.bam
-
-samtools index pseudo_read.bam
-```
-
 
 ## 2. Phasing of nanoEM or t-nanoEM reads with somatic SNVs
 This workflow for separation of nanoEM or t-nanoEM reads based on the presence or absence of somatic single-nucleotide variants (SNVs).
