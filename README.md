@@ -114,7 +114,7 @@ samtools index pseudo_read_all_pri.bam
 ### Phasing of nanoEM or t-nanoEM reads with phased SNPs
 
 ```bash
-whatshap haplotag -o pseudo_read.tagged.bam --reference reference_genome.fa --ignore-read-groups force_phased.vcf.gz (or phased.vcf.gz) pseudo_read.bam
+whatshap haplotag -o pseudo_read.tagged.bam --reference reference_genome.fa --ignore-read-groups force_phased.vcf.gz (or phased.vcf.gz) pseudo_read.bam (or pseudo_read_all_pri.bam)
 
 samtools sort pseudo_read.tagged.bam -o pseudo_read.tagged.bam
 
